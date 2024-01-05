@@ -1,0 +1,53 @@
+version: '3'
+
+services:
+  
+
+  postgres:
+    image: postgres:14.3
+    container_name: postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - apiservice
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    ports:
+      - 5432:5432
+
+  adminer:
+    image: adminer
+    container_name: adminer
+    restart: always
+    depends_on:
+      - postgres
+    environment:
+      ADMINER_DEFAULT_SERVER: postgres
+    ports:
+      - 9000:8080
+    networks:
+      - apiservice
+
+  core:
+    build:
+      context: ./core
+    container_name: core
+    ports:
+      - 8000:8000
+    volumes:
+      - ./core:/core
+    working_dir: /core
+    command: python manage.py runserver 0:8000
+    environment:
+      - API_ENTRYPOINT=http://postgres:5432/graphql
+    depends_on:
+      - postgres
+    networks:
+      - apiservice
+networks:
+  apiservice:
+
+volumes:
+  pgdata:

@@ -1,0 +1,6 @@
+*node_modules
+web/dist/*
+web/yarn-error.log
+__pycache__/
+/.volumes/postgres/data
+/.vscode
