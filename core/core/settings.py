@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "common.apps.CommonConfig",
     "apicity.apps.ApicityConfig",
-    'rest_framework',
+    "rest_framework",
 ]
 
 MIDDLEWARE = [

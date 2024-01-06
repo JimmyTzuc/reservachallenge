@@ -1,5 +1,11 @@
 from django.urls import path
 
+from .views import GetCityForecast
+
 urlpatterns = [
-   # Aqui van las rutas
+    path(
+        "pronostico/<str:city_name>/",
+        GetCityForecast.as_view(),
+        name="pronostico_ciudad",
+    ),
 ]
