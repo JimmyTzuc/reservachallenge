@@ -17,19 +17,6 @@ services:
     ports:
       - 5432:5432
 
-  adminer:
-    image: adminer
-    container_name: adminer
-    restart: always
-    depends_on:
-      - postgres
-    environment:
-      ADMINER_DEFAULT_SERVER: postgres
-    ports:
-      - 9000:8080
-    networks:
-      - apiservice
-
   core:
     build:
       context: ./core
