@@ -1,7 +1,24 @@
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import path, include
+from rest_framework import permissions
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi
+
+schema_view = get_schema_view(
+    openapi.Info(
+        title="API de Pronóstico del Tiempo",
+        default_version='v1',
+        description="API para obtener el pronóstico del tiempo de ciudades",
+        terms_of_service="URL de términos de servicio",
+        contact=openapi.Contact(email="tu@email.com"),
+        license=openapi.License(name="Tu licencia"),
+    ),
+    public=True,
+    permission_classes=(permissions.AllowAny,),
+)
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
-    path("api/", include("apicity.urls")),
+    path('admin/', admin.site.urls),
+    path('api/', include('apicity.urls')),
+    path('', schema_view.with_ui('swagger', cache_timeout=0), name='docs'),
 ]

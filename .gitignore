@@ -5,3 +5,4 @@ __pycache__/
 /.volumes/postgres/data
 /.vscode
 .env
+.DS_Store
