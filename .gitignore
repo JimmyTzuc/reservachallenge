@@ -4,3 +4,4 @@ web/yarn-error.log
 __pycache__/
 /.volumes/postgres/data
 /.vscode
+.env
