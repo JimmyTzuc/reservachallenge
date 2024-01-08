@@ -1,11 +1,8 @@
 Django>=3.1
 psycopg2>=2.9.5
 django-filter
-django-seed>=0.2.2
-django-extensions>=3.0.5
-factory-boy>=3.0.1
+django-extensions>=3.0.5i
 djangorestframework
-markdown
 requests
 black==22.8.0
 flake8==4.0.1
