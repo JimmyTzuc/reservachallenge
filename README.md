@@ -1,37 +1,110 @@
-Django Project
+Reservamos Challenge
 ==============
 
-This is a Docker (with docker-compose) environment for Django Project development.
+  
+
+This is a Docker (with docker-compose) environment and the instalation is required.
+
+  
 
 # Installation
 
+  
+
 1. First, clone this repository:
 
+  
+
 ```bash
-$ git clone 
+
+$  git  clone
+
 ```
+
+  
 
 2. Init project
+
 ```bash
-$ make
+
+$  make
+
 ```
+
+  
 
 3. Show containers:
+
 ```bash
-$ make ps
+
+$  make  ps
+
 ```
+
 This results in the following running containers:
 
+  
+
 ```bash
+
 > $ docker-compose ps
-   Name                  Command                 State                          Ports
+
+Name  Command  State  Ports
+
 ----------------------------------------------------------------------------------------------------------
-adminer       entrypoint.sh docker-php-e ...   Up           0.0.0.0:9000->8080/tcp
-celery        celery -A core worker -l i ...   Up
-celery-beat   celery -A core beat -l inf ...   Up
-core          python manage.py runserver ...   Up           0.0.0.0:8000->8000/tcp
-mailhog       MailHog                          Up           0.0.0.0:1025->1025/tcp, 0.0.0.0:8025->8025/tcp
-postgres      docker-entrypoint.sh postgres    Up           0.0.0.0:5432->5432/tcp
-redis         docker-entrypoint.sh redis ...   Up           0.0.0.0:6379->6379/tcp
+
+core  python  manage.py  runserver  ...  Up  0.0.0.0:8000->8000/tcp
+
+postgres  docker-entrypoint.sh  postgres  Up  0.0.0.0:5432->5432/tcp
+
 ```
 
+  
+
+## The main services are host in:
+
+| Service | Localhost | Staging |
+| -- | -- | --|
+| core |http://localhost:8000 | UNDEFINED |
+
+  
+  ### The public postman workspace
+
+- https://www.postman.com/stjimmytzuc/workspace/reserchallenge
+
+### Initial Data
+
+- **1 User:** admin(superuser)
+
+#### Information admin:
+
+**`username:`**  `admin,`
+
+**`password:`**  `admin`
+
+  
+  
+
+### Considering Making Requests?:
+#### URLs & endpoints:
+
+- **API doc:**  *`/`*
+- **Pronostico:** ***[GET]**`/api/pronostico/mer/{city_name}`*
+
+  
+
+Rules:
+
+- *The Autorization is not required*
+
+- *Login is not available*
+
+- *You need a place name for petitions*
+
+  
+
+## diagrams and stuff
+
+### Environment architecture
+
+![arch](arq.png)
