@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "common.apps.CommonConfig",
     "apicity.apps.ApicityConfig",
     "rest_framework",
+    "drf_yasg",
 ]
 
 MIDDLEWARE = [
@@ -119,3 +120,11 @@ STATIC_URL = "/static/"
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+
+CACHE_TTL = 3600
+
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.JSONRenderer',
+    ],
+}
