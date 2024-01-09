@@ -65,7 +65,7 @@ postgres  docker-entrypoint.sh  postgres  Up  0.0.0.0:5432->5432/tcp
 
 | Service | Localhost | Staging |
 | -- | -- | --|
-| core |http://localhost:8000 | https://18.217.55.215/ |
+| core |http://localhost:8000 | https://18.217.55.215:8000 |
 
   
   ### The public postman workspace
